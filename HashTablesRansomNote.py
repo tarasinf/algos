@@ -93,9 +93,6 @@ def ransom_note_taras(magazine, ransom):
     for word in magazine:
         h[h.hash(word)] = (h[h.hash(word)] + 1) if h[h.hash(word)] is not None else 1
     
-
-    h.pprint()
-
     for word in ransom:
         if h[h.hash(word)] is not None:
             if h[h.hash(word)] == 1:
@@ -104,7 +101,6 @@ def ransom_note_taras(magazine, ransom):
                 h[h.hash(word)] -= 1 
         else:
             return False
-    h.pprint()
     return True
 
 
@@ -127,14 +123,12 @@ def ransom_note_python(magazine, ransom):
 def ransom_note(magazine, ransom):
     return ransom_note_taras(magazine, ransom)
     
-    
-# m, n = map(int, raw_input().strip().split(' '))
-# magazine = raw_input().strip().split(' ')
-# ransom = raw_input().strip().split(' ')
+
 magazine = 'give me one grand today night'.strip().split(' ')
 ransom = 'give one grand today'.strip().split(' ')
-answer = ransom_note(magazine, ransom)
-if(answer):
+
+
+if ransom_note(magazine, ransom):
     print "Yes"
 else:
     print "No"
